@@ -1,0 +1,61 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  height: auto;
+  min-height: $input-height;
+  padding: 0.25rem 0.5rem;
+  cursor: text;
+
+  &.focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    box-shadow: $input-focus-box-shadow;
+  }
+
+  &.disabled {
+    background-color: $input-disabled-bg;
+    cursor: default;
+  }
+
+  input {
+    flex: 1;
+    min-width: 80px;
+    border: 0;
+    outline: 0;
+    padding: 0.125rem 0.25rem;
+    background: transparent;
+    color: inherit;
+  }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.75rem 0.125rem 0.25rem;
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: $info;
+  border-radius: $border-radius-sm;
+}
+
+.tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.4rem;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: $info;
+  background-color: #fff;
+  border: 0;
+  border-radius: 50%;
+}

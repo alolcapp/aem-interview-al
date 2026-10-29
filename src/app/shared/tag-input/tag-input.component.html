@@ -1,0 +1,9 @@
+<div class="form-control tag-input" [class.focus]="focused" [class.disabled]="disabled" (click)="focus()">
+  <span class="tag" *ngFor="let tag of tags; let i = index">
+    <button type="button" class="tag-remove" aria-label="Remove" [disabled]="disabled"
+      (click)="remove(i); $event.stopPropagation()">&times;</button>
+    {{ tag }}
+  </span>
+  <input #input type="text" [placeholder]="tags.length ? '' : placeholder" [disabled]="disabled"
+    (keydown)="onKeydown($event)" (focus)="focused = true" (blur)="onBlur()">
+</div>

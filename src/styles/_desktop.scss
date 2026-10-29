@@ -1,0 +1,203 @@
+// Dark theme used only inside the Electron app (see AppPage)
+
+$bg: #000;
+$surface: #0d0d0d;
+$surface-raised: #161616;
+$line: #262626;
+$text: #e5e5e5;
+$muted: #8a8a8a;
+$accent: #e6b400;
+$serif: Georgia, 'Times New Roman', serif;
+
+html.desktop {
+  body {
+    background-color: $bg;
+    color: $text;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $line;
+    border-radius: 4px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .text-info {
+    color: $muted !important;
+  }
+
+  // Navbar: centered title, letter-spaced action
+  .navbar {
+    position: relative;
+    justify-content: center;
+    padding: 1.25rem 1.5rem;
+    background-color: transparent;
+    border-bottom: 1px solid $line;
+  }
+
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: #fff;
+    font-size: 1.15rem;
+  }
+
+  .brand-prefix {
+    display: inline;
+    font-weight: 700;
+  }
+
+  .brand-name {
+    font-family: $serif;
+    font-style: italic;
+  }
+
+  // Sign out lives in the title bar on desktop
+  .navbar .sign-out {
+    display: none;
+  }
+
+  // Cards and panels
+  .card {
+    background-color: $surface;
+    border: 1px solid $line;
+    border-radius: 12px;
+  }
+
+  .card-header {
+    background-color: transparent;
+    border-bottom: 1px solid $line;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .bg-light {
+    background-color: $surface !important;
+    border: 1px solid $line;
+    color: $text;
+
+    pre {
+      color: $text;
+    }
+  }
+
+  // Form controls: dark pills
+  .form-control,
+  .input-group-text {
+    background-color: $surface-raised;
+    border-color: $line;
+    color: $text;
+  }
+
+  .form-control {
+    border-radius: 999px;
+    padding-left: 1rem;
+
+    &::placeholder {
+      color: $muted;
+    }
+
+    &:focus,
+    &.focus {
+      background-color: $surface-raised;
+      border-color: $accent;
+      color: #fff;
+      box-shadow: none;
+    }
+
+    &.is-invalid {
+      border-color: #e5484d;
+    }
+  }
+
+  .input-group-text {
+    border-radius: 999px 0 0 999px;
+  }
+
+  .input-group > .form-control {
+    border-radius: 0 999px 999px 0;
+  }
+
+  .tag-input {
+    border-radius: 18px;
+
+    .tag {
+      background-color: #fff;
+      color: #000;
+      border-radius: 999px;
+    }
+
+    .tag-remove {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
+  // Buttons: white pill like the active toggle
+  .btn-primary {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+
+    &:hover,
+    &:focus {
+      background-color: $accent;
+      border-color: $accent;
+      color: #000;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      background-color: $surface-raised;
+      border-color: $line;
+      color: $muted;
+    }
+  }
+
+  .alert-danger {
+    background-color: rgba(229, 72, 77, 0.12);
+    border-color: rgba(229, 72, 77, 0.4);
+    color: #ff8589;
+  }
+
+  // Table: dark grid with muted labels
+  .table {
+    background-color: $surface !important;
+    color: $text;
+
+    th,
+    td {
+      border-color: $line;
+    }
+
+    thead th {
+      background-color: $surface-raised;
+      color: $muted;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    tbody tr:hover {
+      background-color: $surface-raised;
+    }
+  }
+}

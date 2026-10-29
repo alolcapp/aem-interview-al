@@ -1,0 +1,20 @@
+<header class="title-bar">
+  <span class="title"><b>AEM</b> Desktop</span>
+
+  <div class="actions">
+    <button *ngIf="auth.isLoggedIn()" type="button" class="sign-out" (click)="signOut()">Sign Out</button>
+
+    <div class="controls">
+      <button type="button" aria-label="Minimize" (click)="minimize()">
+        <svg viewBox="0 0 10 10"><path d="M1 5h8" /></svg>
+      </button>
+      <button type="button" [attr.aria-label]="maximized ? 'Restore' : 'Maximize'" (click)="toggleMaximize()">
+        <svg *ngIf="!maximized" viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" /></svg>
+        <svg *ngIf="maximized" viewBox="0 0 10 10"><path d="M3 1h6v6M1 3h6v6H1z" /></svg>
+      </button>
+      <button type="button" class="close" aria-label="Close" (click)="close()">
+        <svg viewBox="0 0 10 10"><path d="M1 1l8 8M9 1l-8 8" /></svg>
+      </button>
+    </div>
+  </div>
+</header>

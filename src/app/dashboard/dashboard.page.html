@@ -1,0 +1,77 @@
+<nav class="navbar navbar-dark">
+  <span class="navbar-brand"><b class="brand-prefix">AEM </b><span class="brand-name">Dashboard</span></span>
+  <button type="button" class="btn btn-link sign-out" (click)="signOut()">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M10 2.5V1.5H2v13h8v-1M6 8h9m-3-3 3 3-3 3" />
+    </svg>
+    Sign Out
+  </button>
+</nav>
+
+<main class="container py-4">
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <ng-container *ngIf="dashboard">
+    <h3 class="mb-3">Overview</h3>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            Donut Chart
+            <span *ngIf="isDesktop" class="card-meta">{{ dashboard.chartDonut.length }} segments</span>
+          </div>
+          <div class="card-body">
+            <app-chart type="donut" [data]="dashboard.chartDonut"></app-chart>
+          </div>
+          <ng-container *ngTemplateOutlet="statStrip; context: { $implicit: donutStats }"></ng-container>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            Bar Chart
+            <span *ngIf="isDesktop" class="card-meta">{{ dashboard.chartBar.length }} bars</span>
+          </div>
+          <div class="card-body">
+            <app-chart type="bar" [data]="dashboard.chartBar"></app-chart>
+          </div>
+          <ng-container *ngTemplateOutlet="statStrip; context: { $implicit: barStats }"></ng-container>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-2 mb-3">
+      User List
+      <span *ngIf="isDesktop" class="section-meta">{{ dashboard.tableUsers.length }} users</span>
+    </h3>
+    <div class="table-responsive">
+      <table class="table table-bordered bg-white">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of dashboard.tableUsers; let i = index">
+            <td class="index">{{ isDesktop ? (i + 1 | number: '2.0') : i + 1 }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td><span class="username">@{{ user.username }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+</main>
+
+<ng-template #statStrip let-stats>
+  <div *ngIf="isDesktop" class="stat-strip">
+    <div class="stat" *ngFor="let stat of stats">
+      <small>{{ stat.label }}</small>
+      <strong>{{ stat.value }}</strong>
+    </div>
+  </div>
+</ng-template>

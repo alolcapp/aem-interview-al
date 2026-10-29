@@ -1,0 +1,10 @@
+<app-title-bar *ngIf="isDesktop"></app-title-bar>
+<div [class.frame]="isDesktop">
+  <div [class.frame-content]="isDesktop">
+    <router-outlet></router-outlet>
+  </div>
+  <footer *ngIf="isDesktop" class="status-bar">
+    <span>{{ city }} : {{ now | date: 'HH:mm' }}</span>
+    <span>AEM · {{ online ? 'Online' : 'Offline' }}</span>
+  </footer>
+</div>

@@ -1,0 +1,29 @@
+.frame {
+  position: fixed;
+  inset: 44px 20px 20px;
+  border: 1px solid #262626;
+}
+
+.frame-content {
+  height: 100%;
+  overflow: auto;
+}
+
+.status-bar {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: -0.6em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #a3a3a3;
+  pointer-events: none;
+
+  span {
+    padding: 0 0.75rem;
+    background-color: #000;
+  }
+}

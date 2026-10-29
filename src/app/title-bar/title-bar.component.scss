@@ -1,0 +1,93 @@
+.title-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 32px;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.title {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+
+  b {
+    color: #fff;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  -webkit-app-region: no-drag;
+}
+
+.sign-out {
+  width: auto;
+  height: auto;
+  padding: 0 0 3px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 1px solid #e6b400;
+  border-radius: 0;
+
+  &:hover {
+    background-color: transparent;
+    color: #e6b400;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid #262626;
+  border-radius: 999px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #a3a3a3;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  &.close:hover {
+    background-color: #e5484d;
+    color: #fff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    width: 10px;
+    height: 10px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
+  }
+}
